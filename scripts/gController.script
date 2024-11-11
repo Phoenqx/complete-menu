@@ -1,0 +1,42 @@
+--[[  Defold Vignette # 1:  Parallax Techniques
+=============================================================================================
+
+Lua Script File:  gController.script
+
+Script Summary: This script provides the following logic:
+
+(1) Moves the foreGround Game Objects to the left during each update cycle
+(2) Resets foreGround Game Objects when they moves out of the active viewport
+
+=============================================================================================
+--]] 
+
+-- Setup a table with the foreGround panel IDs
+local gSegments = { "foreGround1", "foreGround2", "foreGround3" }
+
+-- ---------------------------------------------------------------------------------------
+-- Initialization - Called upon Application Start
+-- ---------------------------------------------------------------------------------------
+function init(self)
+
+	self.gImageSize = go.get('/foreGround/foreGround1#sprite', 'size')
+	self.gSpeed = 75	
+
+end
+
+
+-- ---------------------------------------------------------------------------------------
+-- Update - Called each frame
+-- ---------------------------------------------------------------------------------------
+function update(self, dt)
+
+	for i, p in ipairs(gSegments) do 
+		local pos = go.get_position(p)
+		if pos.x <= -self.gImageSize.x then 
+			pos.x = pos.x + 3 * self.gImageSize.x 
+		end
+		pos.x = pos.x - self.gSpeed * dt 
+		go.set_position(pos, p) 
+	end
+
+end

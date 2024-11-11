@@ -1,0 +1,386 @@
+_G.username = ""
+_G.password = ""
+_G.profileTable = {}
+local userMaxLength = 20
+local passMaxLength = 10
+local userProfiles = {}
+
+
+--local is_main_loaded = false 
+local username = ""
+local create_user = ""
+local create_pass = ""
+local first_name = ""
+local last_name = ""
+
+function init(self)
+	-- Acquire input focus for this GUI
+	msg.post(".", "acquire_input_focus")
+	-- Initialize message
+	self.createPass = ""
+	self.userMessage = ""
+	self.passMessage = ""
+	--self.input_text = ""
+	self.masked_text = ""
+	self.camasked_text = ""
+	self.causerMessage = ""
+	self.capassMessage = ""
+	self.cafirstMessage = ""
+	self.calastMessage = ""
+end
+
+local function save_profile(user, playerData)
+	local playerFileName = user .. "_player_profile"
+	--local playerFileName = "player_profiles"
+	local filename = sys.get_save_file("sys_save_load", playerFileName)
+	--playerData[playerData.firstname] = playerData
+	pprint("PLAYER", playerData.firstname)
+	sys.save(filename, playerData)
+end
+
+local function print_table(t)
+	for key, value in pairs(t) do
+		print(key, value)
+	end
+end
+
+local function get_profile()
+	--print("ROWS==", rows)
+	local playerFileName = _G.username .. "_player_profile"
+	--local playerFileName = "player_profiles"
+	local filename = sys.get_save_file("sys_save_load", playerFileName)
+	
+	--local filename = sys.get_save_file("sys_save_load", "player_profile")
+	print("FILE===", filename)
+	local data = sys.load(filename)
+	for key, value in pairs(data) do
+		print(key, value)
+	end
+	pprint("DATA===", data)
+	return data
+end
+
+local function on_login_button_pressed()
+	--print("ON Username: " .. username)
+	--print("ON Password: " .. password)
+	print("ON_LOGIN")
+	local data = get_profile()
+	pprint("PDATA===", data)	
+	print("GPASS", _G.password)
+	print("GUS", _G.username)
+	--local error_flag = false
+	if #_G.username > userMaxLength then		
+		local userErrorMessage = "Error:Username exceeded max length 20"
+		gui.set_text(gui.get_node("errorLabel"), userErrorMessage)
+		print(_G.username .. userErrorMessage)
+		error(_G.username .. userErrorMessage)	
+		--error_flag = true
+	elseif #_G.password > passMaxLength then
+		local errorMessage = "Error:Password exceeded max length 10"
+		gui.set_text(gui.get_node("errorLabel"), errorMessage)
+		print(_G.password .. errorMessage)
+		error(_G.password .. errorMessage)	
+		--error_flag = true		
+	end
+	-- Replace this with your actual login logic
+	pprint("GET-DATA", data)
+	print(_G.username)
+	if data and _G.username == data.username then
+		print("Login successful!")
+		--error_flag = false
+		-- Proceed to next screen or action
+	else	
+		local message = "Invalid username or password."
+		gui.set_text(gui.get_node("errorLabel"), message)
+		error(message)
+		print(message)
+		
+		--error_flag = true
+	end
+	--return error_flag
+end
+
+local function createaccount_screen(action)
+	local strings = {
+		"popupBackground",
+		"createclose/button",
+		"firstNameLabel",
+		"firstNameInput",
+		"lastNameLabel",
+		"lastNameInput",
+		"userInput",
+		"userLabel",
+		"passLabel",
+		"passInput",
+		"createaccount/button",
+		"popupTitle"
+	}
+	for  i = 1, #strings do			
+		--if is_popup_enable then
+		if action == "hide"	then
+			gui.set_enabled(gui.get_node(strings[i]), false)
+		elseif action == "show" then
+			gui.set_enabled(gui.get_node(strings[i]), true)
+		end	
+	end	
+end
+
+local function login_screen(action)
+	local actionValue = true
+	if action == "hide" then
+		actionValue = false
+	end			
+	gui.set_enabled(gui.get_node("passwordInput"), actionValue)
+	gui.set_enabled(gui.get_node("passwordLabel"), actionValue)
+	gui.set_enabled(gui.get_node("usernameInput"), actionValue)
+	gui.set_enabled(gui.get_node("usernameLabel"), actionValue)
+	gui.set_enabled(gui.get_node("create/button"), actionValue)
+	gui.set_enabled(gui.get_node("login/button"), actionValue)
+	gui.set_enabled(gui.get_node("loginBox"), actionValue)
+end
+
+local function login_form (self, action_id, action)
+	self.selected_node = ""
+	print("LoginForm")
+	
+	if gui.pick_node(gui.get_node("usernameInput"), action.x, action.y) then
+		self.selected_node = "User"
+	elseif gui.pick_node(gui.get_node("passwordInput"), action.x, action.y) then
+		self.selected_node =  "Pass" 
+	else
+		self.selected_node = ""
+	end
+
+	-- Handle username text input
+	--local is_placeholder = true
+	if action_id == hash("type") and self.selected_node == "User" then		
+		--is_placeholder = false		
+		local uName = gui.get_text(gui.get_node("usernameInput"))
+		uName = uName .. action.text
+		_G.username = uName
+		gui.set_text(gui.get_node("usernameInput"), uName)
+		local errorNode = gui.get_node("errorLabel")
+		gui.set_text(errorNode, "")		
+	elseif action_id == hash("backspace") and action.repeated and self.selected_node == "User" then		
+		local l = string.len(self.userMessage)
+		self.userMessage = string.sub(self.userMessage, 0, l - 1)
+		local user = gui.get_node("usernameInput")
+		gui.set_text(user, self.userMessage)
+	end
+
+	-- Handle password text input
+	if action_id == hash("type") and  self.selected_node == "Pass" then
+		local pass = gui.get_text(gui.get_node("passwordInput"))		
+		pass = pass .. action.text
+		_G.password = pass
+		if string.match(pass, "%w") then
+			-- Append the character to the input text and mask it
+			--_G.password = pass
+			self.passMessage = self.passMessage .. pass			
+			self.masked_text = self.masked_text .. "*"
+		end
+		gui.set_text(gui.get_node("passwordInput"), pass)
+		local errorNode = gui.get_node("errorLabel")
+		gui.set_text(errorNode, "")
+	elseif action_id == hash("backspace") and action.repeated and self.selected_node == "Pass" then
+		if #self.passMessage > 0 then
+			-- Remove the last character from the input text
+			self.passMessage = self.passMessage:sub(1, -2)
+			self.masked_text = self.masked_text:sub(1, -2)
+		end
+	end
+end
+
+local function createaccount_form (self, action_id, action)
+	self.selected_create_node = ""
+	print("CAForm")
+		
+	if gui.pick_node(gui.get_node("userInput"), action.x, action.y) then
+		self.selected_create_node = "username"
+		print("selectedUs==",self.selected_create_node)
+	elseif gui.pick_node(gui.get_node("passInput"), action.x, action.y) then
+		self.selected_create_node = "password" -- gui.get_node("passwordInput")
+		print("selectedPs==", self.selected_create_node)
+	elseif gui.pick_node(gui.get_node("firstNameInput"), action.x, action.y) then
+		self.selected_create_node =  "firstname" --gui.get_node("passwordInput")
+		print("selectedF==",self.selected_create_node)
+	elseif gui.pick_node(gui.get_node("lastNameInput"), action.x, action.y) then
+		self.selected_create_node =  "lastname" --gui.get_node("passwordInput")
+		print("selectedL==",self.selected_create_nodee)
+	else
+		self.selected_create_node = ""
+	end
+
+	-- Handle first name input
+	if action_id == hash("type") and self.selected_create_node == "firstname" then
+		--is_placeholder = false
+		local firstName = gui.get_text(gui.get_node("firstNameInput"))		
+		firstName = firstName .. action.text
+		gui.set_text(gui.get_node("firstNameInput"), firstName)
+		-- gui.set_text(gui.get_node("errorLabel"), "")		
+	elseif action_id == hash("backspace") and action.repeated and self.selected_create_node == "firstname" then
+		local l = string.len(self.cafirstMessage)
+		self.cafirstMessage = string.sub(self.cafirstMessage, 0, l - 1)
+		gui.set_text(gui.get_node("firstNameInput"), self.cafirstMessage)
+	end	
+
+	-- Handle last name input
+	if action_id == hash("type") and self.selected_create_node == "lastname" then
+		--is_placeholder = false
+		local lastName = gui.get_text(gui.get_node("lastNameInput"))		
+		lastName = lastName .. action.text
+		gui.set_text(gui.get_node("lastNameInput"), lastName)
+		--gui.set_text(gui.get_node("errorLabel"), "")		
+	elseif action_id == hash("backspace") and action.repeated and self.selected_create_node == "lastname" then
+		local l = string.len(self.calastMessage)
+		self.calastMessage = string.sub(self.calastMessage, 0, l - 1)
+		gui.set_text(gui.get_node("lastNameInput"), self.calastMessage)
+	end	
+		
+	-- Handle username input
+	if action_id == hash("type") and self.selected_create_node == "username" then
+		--is_placeholder = false
+		local userName = gui.get_text(gui.get_node("userInput"))		
+		userName = userName .. action.text
+		gui.set_text(gui.get_node("userInput"), userName)
+		gui.set_text(gui.get_node("errorLabel"), "")		
+	elseif action_id == hash("backspace") and action.repeated and self.selected_create_node == "username" then
+		local l = string.len(self.causerMessage)
+		self.causerMessage = string.sub(self.causerMessage, 0, l - 1)
+		-- self.causerMessage = string.sub(self.causerMessage, 1, -2)
+		gui.set_text(gui.get_node("userInput"), self.causerMessage)
+	end	
+
+	-- Handle password input
+	if action_id == hash("type") and  self.selected_create_node == "password" then
+		local capass = gui.get_text(gui.get_node("passInput"))		
+		capass = capass .. action.text
+		--_G.password = capass
+		self.createPass = capass
+		if string.match(capass, "%w") then
+			-- Append the character to the input text and mask it
+			--_G.password = pass
+			self.capassMessage = self.capassMessage .. capass			
+			self.camasked_text = self.camasked_text .. "*"
+		end
+		gui.set_text(gui.get_node("passInput"), capass)
+		local errorNode = gui.get_node("errorLabel")
+		gui.set_text(errorNode, "")
+	elseif action_id == hash("backspace") and action.repeated and self.selected_create_node == "password" then
+		if #self.capassMessage > 0 then
+			-- Remove the last character from the input text
+			self.capassMessage = self.capassMessage:sub(1, -2)
+			self.camasked_text = self.camasked_text:sub(1, -2)
+		end
+	end
+	
+end
+function update(self, dt)
+	gui.set_text(gui.get_node("passwordInput"), self.masked_text)
+	gui.set_text(gui.get_node("passInput"), self.camasked_text)	
+end
+
+function on_input(self, action_id, action)
+	--self.selected_node = ""	
+	--self.selected_create_node = ""
+	--createaccount_screen("hide")
+	self.show = true;
+	if self.show then
+		login_form(self, action_id, action)
+	end
+	
+	createaccount_form(self, action_id, action)
+	
+	if action.pressed and gui.pick_node(gui.get_node("createaccount/button"), action.x, action.y) then
+		print("Create Account button clicked")
+		self.show = false
+		
+		--on_login_button_pressed()
+		
+		-- Get the text from the username node
+		create_user = gui.get_text(gui.get_node("userInput"))
+		first_name = gui.get_text(gui.get_node("firstNameInput"))
+		last_name = gui.get_text(gui.get_node("lastNameInput"))	
+		print("CAUsername set to:", create_user)
+
+		-- Get the text from the password node
+		create_pass = gui.get_text(gui.get_node("passInput"))
+		print("CAPassword set to:",create_pass)
+
+		-- Optionally reset input after storing
+		self.capassMessage = ""
+		self.camasked_text = ""
+
+		--local jsonstring = '{"persons":[{"name":"John Doe"},{"name":"Darth Vader"}]}'
+		--local name = first_name .. last_name 
+		local profileData =  { 
+			firstname = first_name,
+			lastname = last_name,
+			username = create_user,
+			password = "",
+			scores = {10, 20, 100, 43},
+			highscore = 0,
+			timeplayed = 0,
+			gamesplayed = 0,
+			obstaclespassed = 0
+		}
+
+		save_profile(create_user, profileData)
+
+		print("Loading login screen")
+		createaccount_screen("hide")
+		login_screen("show")
+	end
+	
+	if action.pressed and gui.pick_node(gui.get_node("createclose/button"), action.x, action.y) then
+		print("CLOSE")
+		-- clear fields
+		gui.set_text(gui.get_node("firstNameInput"), "")
+		gui.set_text(gui.get_node("lastNameInput"),"")
+		gui.set_text(gui.get_node("passInput"),"")
+		gui.set_text(gui.get_node("userInput"),"")
+		
+		createaccount_screen("hide")
+		login_screen("show")		
+	end
+	
+	if action.pressed and gui.pick_node(gui.get_node("create/button"), action.x, action.y) then
+		login_screen("hide")
+		gui.set_text(gui.get_node("errorLabel"),"")
+		createaccount_screen("show")
+		
+		print("CREATE==")
+	end
+	
+	if action.pressed and gui.pick_node(gui.get_node("login/button"), action.x, action.y) then
+		print("Login button clicked")
+		on_login_button_pressed()
+		-- Get the text from the username node
+		--if not errorFlag then
+			_G.username = gui.get_text(gui.get_node("usernameInput"))		
+			print("Username set to:", _G.username)
+		---local filename = sys.get_save_file("sys_save_load", "profile")
+		---sys.save(filename, { username = username })
+		
+		-- Get the text from the password node
+			_G.password = gui.get_text(gui.get_node("passwordInput"))
+			print("Password set to:", _G.password)
+
+			-- Optionally reset input after storing
+			self.passMessage = ""
+			self.masked_text = ""
+
+						print("Loading menu.collection...")
+			--msg.post("welcomegameobject#main_proxy", "load")
+			msg.post("controller:/controller", "show_menu")
+	end	
+end
+
+function on_message(self, message_id, message, sender)
+if message_id == hash("proxy_loaded") then
+
+	-- New world is loaded. Init and enable it.
+	msg.post(sender, "init")
+	msg.post(sender, "enable")
+end
+end

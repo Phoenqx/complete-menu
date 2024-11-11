@@ -1,0 +1,675 @@
+script: "/login/login.gui_script"
+fonts {
+  name: "menu"
+  font: "/scripts/menu.font"
+}
+fonts {
+  name: "small"
+  font: "/scripts/small.font"
+}
+textures {
+  name: "mainmenu"
+  texture: "/mainMenu/mainmenu.atlas"
+}
+nodes {
+  position {
+    x: 4.0
+    y: 704.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Skyline \n"
+  "Skirmish"
+  font: "menu"
+  id: "Titletext"
+  layer: "formLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 606.0
+    y: 164.0
+  }
+  type: TYPE_TEMPLATE
+  id: "create"
+  layer: "formLayer"
+  inherit_alpha: true
+  template: "/login/button.gui"
+}
+nodes {
+  position {
+    x: 66.0
+    y: 167.0
+  }
+  scale {
+    x: 1.053424
+    y: 1.198968
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  type: TYPE_BOX
+  id: "create/button"
+  parent: "create"
+  layer: "popupLayer"
+  alpha: 0.89
+  overridden_fields: 1
+  overridden_fields: 3
+  overridden_fields: 4
+  overridden_fields: 20
+  overridden_fields: 30
+  overridden_fields: 38
+  template_node_child: true
+}
+nodes {
+  position {
+    x: -2.0
+    y: 2.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Create"
+  font: "small"
+  id: "create/text"
+  parent: "create/button"
+  layer: "popupLayer"
+  overridden_fields: 1
+  overridden_fields: 4
+  overridden_fields: 5
+  overridden_fields: 8
+  overridden_fields: 10
+  overridden_fields: 20
+  template_node_child: true
+}
+nodes {
+  position {
+    x: -39.0
+    y: 32.0
+  }
+  type: TYPE_TEMPLATE
+  id: "login"
+  layer: "formLayer"
+  inherit_alpha: true
+  template: "/login/button.gui"
+}
+nodes {
+  position {
+    x: 834.0
+    y: 298.0
+  }
+  scale {
+    x: 1.053424
+    y: 1.198968
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  type: TYPE_BOX
+  id: "login/button"
+  parent: "login"
+  layer: "popupLayer"
+  alpha: 0.81
+  overridden_fields: 1
+  overridden_fields: 3
+  overridden_fields: 4
+  overridden_fields: 20
+  overridden_fields: 30
+  overridden_fields: 38
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 9.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Login"
+  font: "small"
+  id: "login/text"
+  parent: "login/button"
+  layer: "popupLayer"
+  overridden_fields: 1
+  overridden_fields: 4
+  overridden_fields: 5
+  overridden_fields: 8
+  overridden_fields: 10
+  overridden_fields: 20
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 814.0
+    y: 430.0
+  }
+  scale {
+    x: 1.053424
+    y: 1.198968
+  }
+  size {
+    x: 250.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "usernameInput"
+  line_break: true
+  layer: "popupLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 817.0
+    y: 377.0
+  }
+  scale {
+    x: 1.053424
+    y: 1.198968
+  }
+  size {
+    x: 250.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "passwordInput"
+  layer: "popupLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 599.0
+    y: 430.0
+  }
+  scale {
+    x: 1.053424
+    y: 1.198968
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Username :"
+  font: "small"
+  id: "usernameLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 597.0
+    y: 377.0
+  }
+  scale {
+    x: 1.053424
+    y: 1.198968
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Password :"
+  font: "small"
+  id: "passwordLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 736.0
+    y: 479.0
+  }
+  scale {
+    x: 1.101377
+    y: 1.02078
+    z: 2.367005
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "errorLabel"
+  layer: "formLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 732.0
+    y: 378.0
+  }
+  scale {
+    x: 1.089366
+    y: 1.000249
+  }
+  size {
+    x: 1500.0
+    y: 800.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/1351636-1"
+  id: "background"
+  layer: "backgroundLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1583.0
+    y: 1195.0
+  }
+  type: TYPE_TEMPLATE
+  id: "createclose"
+  layer: "popupLayer"
+  inherit_alpha: true
+  template: "/login/button.gui"
+}
+nodes {
+  position {
+    x: -792.0
+    y: -629.0
+  }
+  size {
+    x: 23.0
+    y: 22.0
+  }
+  color {
+    x: 0.8
+  }
+  type: TYPE_BOX
+  id: "createclose/button"
+  parent: "createclose"
+  layer: "popupLayer"
+  overridden_fields: 1
+  overridden_fields: 4
+  overridden_fields: 5
+  overridden_fields: 20
+  overridden_fields: 30
+  overridden_fields: 38
+  overridden_fields: 45
+  template_node_child: true
+  enabled: false
+}
+nodes {
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.702
+    y: 0.702
+    z: 0.702
+  }
+  type: TYPE_TEXT
+  text: "x"
+  font: "menu"
+  id: "createclose/text"
+  parent: "createclose/button"
+  layer: "popupLayer"
+  overridden_fields: 4
+  overridden_fields: 5
+  overridden_fields: 8
+  overridden_fields: 10
+  overridden_fields: 20
+  template_node_child: true
+}
+nodes {
+  position {
+    x: -91.0
+    y: 32.0
+  }
+  type: TYPE_TEMPLATE
+  id: "createaccount"
+  layer: "popupLayer"
+  inherit_alpha: true
+  template: "/login/button.gui"
+}
+nodes {
+  position {
+    x: 654.0
+    y: 250.0
+  }
+  size {
+    x: 150.0
+    y: 25.0
+  }
+  type: TYPE_BOX
+  id: "createaccount/button"
+  parent: "createaccount"
+  layer: "popupLayer"
+  overridden_fields: 1
+  overridden_fields: 4
+  overridden_fields: 5
+  overridden_fields: 20
+  overridden_fields: 30
+  overridden_fields: 38
+  overridden_fields: 45
+  template_node_child: true
+  enabled: false
+}
+nodes {
+  size {
+    x: 150.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Create Account"
+  font: "small"
+  id: "createaccount/text"
+  parent: "createaccount/button"
+  layer: "popupLayer"
+  inherit_alpha: true
+  overridden_fields: 4
+  overridden_fields: 5
+  overridden_fields: 8
+  overridden_fields: 10
+  overridden_fields: 20
+  overridden_fields: 21
+  overridden_fields: 30
+  overridden_fields: 45
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 732.0
+    y: 416.0
+  }
+  scale {
+    x: 2.302202
+    y: 2.687495
+    z: 3.92
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/skyBackground"
+  id: "loginBox"
+  layer: "formLayer"
+  inherit_alpha: true
+  alpha: 0.54
+}
+nodes {
+  position {
+    x: 588.0
+    y: 397.0
+  }
+  scale {
+    x: 0.625713
+    y: 0.730718
+    z: 0.745339
+  }
+  size {
+    x: 700.0
+    y: 500.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/skyBackground"
+  id: "popupBackground"
+  layer: "popupLayer"
+  inherit_alpha: true
+  alpha: 0.51
+  enabled: false
+}
+nodes {
+  position {
+    x: 455.0
+    y: 462.0
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "First Name : "
+  font: "small"
+  id: "firstNameLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 467.0
+    y: 543.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Create Account"
+  font: "menu"
+  id: "popupTitle"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 622.0
+    y: 463.0
+  }
+  size {
+    x: 200.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "firstNameInput"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 444.0
+    y: 386.0
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Username :"
+  font: "small"
+  id: "userLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 614.0
+    y: 424.0
+  }
+  size {
+    x: 200.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "lastNameInput"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 616.0
+    y: 344.0
+  }
+  size {
+    x: 200.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "passInput"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 446.0
+    y: 346.0
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Password :"
+  font: "small"
+  id: "passLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 446.0
+    y: 423.0
+  }
+  size {
+    x: 100.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Last Name :"
+  font: "small"
+  id: "lastNameLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 613.0
+    y: 389.0
+  }
+  size {
+    x: 200.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "userInput"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+layers {
+  name: "backgroundLayer"
+}
+layers {
+  name: "formLayer"
+}
+layers {
+  name: "popupLayer"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

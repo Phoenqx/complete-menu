@@ -1,0 +1,25 @@
+images {
+  image: "/assets/images/skyBackground.jpg"
+}
+images {
+  image: "/assets/images/gear.png"
+}
+images {
+  image: "/assets/images/user.png"
+}
+images {
+  image: "/assets/images/information.png"
+}
+images {
+  image: "/assets/images/backgroundGradient.png"
+}
+images {
+  image: "/assets/images/1351636-1.png"
+}
+images {
+  image: "/assets/images/information_txt.png"
+}
+images {
+  image: "/assets/images/settings_text.png"
+}
+extrude_borders: 2

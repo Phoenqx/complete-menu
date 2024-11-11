@@ -1,0 +1,115 @@
+fonts {
+  name: "menu"
+  font: "/scripts/menu.font"
+}
+textures {
+  name: "background"
+  texture: "/assets/images/background.atlas"
+}
+nodes {
+  position {
+    x: 500.0
+    y: 500.0
+  }
+  rotation {
+    y: 7.277
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "First Name"
+  font: "menu"
+  id: "firstNameLabel"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 750.0
+    y: 500.0
+  }
+  rotation {
+    y: 7.277
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  font: "menu"
+  id: "firstNameInput"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 500.0
+    y: 390.0
+  }
+  rotation {
+    y: 7.277
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Last Name"
+  font: "menu"
+  id: "lastNameLabel"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 750.0
+    y: 390.0
+  }
+  rotation {
+    y: 7.277
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  font: "menu"
+  id: "lastNameInput"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 500.0
+    y: 500.0
+  }
+  rotation {
+    y: 7.277
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "username"
+  font: "menu"
+  id: "usernameLabel"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 750.0
+    y: 500.0
+  }
+  rotation {
+    y: 7.277
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  font: "menu"
+  id: "firstNameInput1"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

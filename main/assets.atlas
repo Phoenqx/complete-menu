@@ -1,0 +1,114 @@
+images {
+  image: "/assets/images/skyLight.jpg"
+}
+images {
+  image: "/assets/images/clouds-png-13381.png"
+}
+images {
+  image: "/assets/images/building.png"
+}
+images {
+  image: "/assets/images/buildings.png"
+}
+images {
+  image: "/assets/images/buildingsAndGround.png"
+}
+images {
+  image: "/assets/images/backgroundGradient.png"
+}
+images {
+  image: "/assets/images/twoClouds.png"
+}
+images {
+  image: "/assets/images/twoClouds2.png"
+}
+images {
+  image: "/assets/images/drone-png-47013.png"
+}
+images {
+  image: "/assets/images/plane.png"
+}
+images {
+  image: "/assets/images/drone.png"
+}
+images {
+  image: "/assets/images/drone3.png"
+}
+images {
+  image: "/assets/images/drone6.png"
+}
+images {
+  image: "/assets/images/plane1.png"
+}
+images {
+  image: "/assets/images/plane2.png"
+}
+images {
+  image: "/assets/images/plane7.png"
+}
+animations {
+  id: "BirdFly"
+  images {
+    image: "/assets/images/blueBird1.png"
+  }
+  images {
+    image: "/assets/images/blueBird2.png"
+  }
+  images {
+    image: "/assets/images/blueBird3.png"
+  }
+  images {
+    image: "/assets/images/blueBird4.png"
+  }
+  images {
+    image: "/assets/images/blueBird5.png"
+  }
+  images {
+    image: "/assets/images/blueBird6.png"
+  }
+  images {
+    image: "/assets/images/blueBird7.png"
+  }
+  images {
+    image: "/assets/images/blueBird8.png"
+  }
+  images {
+    image: "/assets/images/blueBird9.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 9
+}
+animations {
+  id: "enemyBirdFly"
+  images {
+    image: "/assets/images/brownBird3.png"
+  }
+  images {
+    image: "/assets/images/brownBird7.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 2
+}
+animations {
+  id: "flyDrone"
+  images {
+    image: "/assets/images/drone-png-47013.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 2
+}
+animations {
+  id: "flyPlane"
+  images {
+    image: "/assets/images/plane.png"
+  }
+  images {
+    image: "/assets/images/plane1.png"
+  }
+  images {
+    image: "/assets/images/plane2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 2
+}
+extrude_borders: 2

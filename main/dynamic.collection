@@ -1,0 +1,21 @@
+name: "dynamic"
+collection_instances {
+  id: "spawn"
+  collection: "/main/spawn.collection"
+}
+scale_along_z: 0
+embedded_instances {
+  id: "dynamic"
+  data: "components {\n"
+  "  id: \"dynamic\"\n"
+  "  component: \"/scripts/dynamic.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"dynamicFactory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/dynamic/enemyBirds.go\\\"\\n"
+  "dynamic_prototype: true\\n"
+  "\"\n"
+  "}\n"
+  ""
+}

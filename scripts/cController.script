@@ -1,0 +1,42 @@
+--[[  Defold Vignette # 1:  Parallax Techniques
+=============================================================================================
+
+Lua Script File:  cController.script
+
+Script Summary: This script provides the following logic:
+
+(1) Moves the cloud Game Objects to the left during each update cycle
+(2) Resets the cloud Game Objects when they moves out of the active viewport
+
+=============================================================================================
+--]] 
+
+-- Setup a table with the cloud panel IDs
+local cSegments = { "cloudA", "cloudB", "cloudC" }
+
+-- ---------------------------------------------------------------------------------------
+-- Initialization - Called upon Application Start
+-- ---------------------------------------------------------------------------------------
+function init(self)
+
+	self.cImageSize = go.get('/cloud/cloudA#sprite', 'size')
+	self.cSpeed = 35	
+
+end
+
+
+-- ---------------------------------------------------------------------------------------
+-- Update - Called each frame
+-- ---------------------------------------------------------------------------------------
+function update(self, dt)
+
+	for i, p in ipairs(cSegments) do 
+		local pos = go.get_position(p)
+		if pos.x <= -self.cImageSize.x then 
+			pos.x = pos.x + 3 * self.cImageSize.x 
+		end
+		pos.x = pos.x - self.cSpeed * dt 
+		go.set_position(pos, p) 
+	end
+
+end

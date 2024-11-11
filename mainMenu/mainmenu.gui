@@ -1,0 +1,626 @@
+script: "/mainMenu/mainmenu.gui_script"
+fonts {
+  name: "mainmenu"
+  font: "/mainMenu/mainmenu.font"
+}
+fonts {
+  name: "menu"
+  font: "/scripts/menu.font"
+}
+fonts {
+  name: "small"
+  font: "/scripts/small.font"
+}
+textures {
+  name: "mainmenu"
+  texture: "/mainMenu/mainmenu.atlas"
+}
+nodes {
+  position {
+    x: 653.0
+    y: 427.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Skyline SKirmish"
+  font: "mainmenu"
+  id: "gameName"
+  layer: "menuLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 672.0
+    y: 333.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Please Enter To Play"
+  font: "menu"
+  id: "Enter"
+  layer: "menuLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1320.0
+    y: 65.0
+  }
+  scale {
+    x: 0.308424
+    y: 0.323534
+    z: 0.826667
+  }
+  size {
+    x: 100.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/gear"
+  id: "gBox"
+  layer: "menuLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -42.0
+    y: 70.0
+  }
+  scale {
+    x: 0.342753
+    y: 0.314722
+    z: 0.586667
+  }
+  size {
+    x: 100.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/information"
+  id: "iBox"
+  layer: "menuLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1323.0
+    y: 721.0
+  }
+  scale {
+    x: 0.293943
+    y: 0.304335
+    z: 0.534473
+  }
+  size {
+    x: 100.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/user"
+  id: "pBox"
+  layer: "menuLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 11.0
+    y: 718.0
+  }
+  scale {
+    x: 1.319062
+    y: 1.096408
+    z: 1.013333
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Skyline \n"
+  "Skirmish"
+  font: "menu"
+  id: "Titletext"
+  layer: "menuLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 642.0
+    y: 385.0
+  }
+  scale {
+    x: 1.182194
+    y: 1.110861
+    z: 1.364444
+  }
+  size {
+    x: 1300.0
+    y: 720.0
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/1351636-1"
+  id: "background"
+  layer: "backgroundLayer"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 667.0
+    y: 428.0
+  }
+  scale {
+    x: 0.367473
+    y: 0.410953
+    z: 1.060453
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/skyBackground"
+  id: "popupBackground"
+  layer: "popupLayer"
+  inherit_alpha: true
+  alpha: 0.59
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  position {
+    x: 391.0
+    y: 599.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Settings"
+  font: "menu"
+  id: "settingsTitle"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 432.0
+    y: 593.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "About The Game "
+  font: "menu"
+  id: "infoTitle"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 1011.0
+    y: 615.0
+  }
+  scale {
+    x: 1.093333
+    y: 1.093333
+    z: 1.093333
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.6
+    y: 0.6
+    z: 0.6
+  }
+  type: TYPE_TEXT
+  text: "x"
+  font: "menu"
+  id: "closeText"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 385.0
+    y: 598.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Profile"
+  font: "menu"
+  id: "profileTitle"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 660.0
+    y: 400.0
+  }
+  scale {
+    x: 0.36925
+    y: 0.357964
+    z: 0.786509
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/settings_text"
+  id: "settingScreen"
+  layer: "popupLayer"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  position {
+    x: 673.0
+    y: 426.0
+  }
+  scale {
+    x: 0.674663
+    y: 0.774455
+    z: 2.392802
+  }
+  type: TYPE_BOX
+  texture: "mainmenu/information_txt"
+  id: "infoScreen"
+  layer: "popupLayer"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  position {
+    x: 487.0
+    y: 429.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "username"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 450.0
+    y: 531.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "firstname"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 923.0
+    y: 543.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "lastname"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 409.0
+    y: 429.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Username :"
+  font: "small"
+  id: "profileUsernameLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 389.0
+    y: 531.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Name :"
+  font: "small"
+  id: "profileNameLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 844.0
+    y: 543.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Surname :"
+  font: "small"
+  id: "profileLastnameLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 419.0
+    y: 398.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Time Played :"
+  font: "small"
+  id: "profileTimePlayedLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 514.0
+    y: 398.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "timeplayed"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 419.0
+    y: 305.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "High Score :"
+  font: "small"
+  id: "profileHighScoreLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 521.0
+    y: 305.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "highscore"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 869.0
+    y: 307.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Average Score :"
+  font: "small"
+  id: "profileAvgScoreLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 966.0
+    y: 307.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "profileAvgScore"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 426.0
+    y: 277.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "Games Played :"
+  font: "small"
+  id: "profileGamesPlayedLabel"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 532.0
+    y: 277.0
+  }
+  size {
+    x: 50.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  font: "small"
+  id: "gamesplayed"
+  layer: "popupLayer"
+  inherit_alpha: true
+  enabled: false
+}
+layers {
+  name: "backgroundLayer"
+}
+layers {
+  name: "menuLayer"
+}
+layers {
+  name: "popupLayer"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

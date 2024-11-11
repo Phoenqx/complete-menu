@@ -1,0 +1,14 @@
+name: "mainmenu"
+scale_along_z: 0
+embedded_instances {
+  id: "mainmenu"
+  data: "components {\n"
+  "  id: \"mainmenu\"\n"
+  "  component: \"/mainMenu/mainmenu.gui\"\n"
+  "}\n"
+  ""
+  position {
+    y: 14.0
+    z: 0.5
+  }
+}

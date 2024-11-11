@@ -1,0 +1,29 @@
+--[[local function hide_screen(url)
+	if url then
+		msg.post(url, "hide")
+	end
+end
+
+-- show a screen and hide the previously shown screen if one existed
+local function show_screen(self, url, message)
+	hide_screen(self.current_screen)
+	self.current_screen = url
+	msg.post(self.current_screen, "show", message or {})
+end
+
+-- start by hiding all guis and show the main menu	
+function init(self)
+	hide_screen("#mainmenuproxy")
+	--hide_screen("level_menu")
+	show_screen(self, "#loginproxy")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("show_mainmenu") then
+		show_screen(self, msg.url("#mainmenuproxy"))
+	elseif message_id == hash("show_game") then
+		-- pass along additional data such as which level to play to the level menu
+		show_screen(self, msg.url("#gameproxy"), message)
+	end
+end
+--]]

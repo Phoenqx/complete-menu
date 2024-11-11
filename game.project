@@ -1,0 +1,21 @@
+[bootstrap]
+main_collection = /main/controller.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 1280
+height = 768
+high_dpi = 1
+fullscreen = 0
+
+[android]
+input_method = HiddenInputField
+
+[html5]
+scale_mode = stretch
+
+[project]
+title = Bird Game
+

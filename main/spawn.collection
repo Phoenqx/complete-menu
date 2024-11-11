@@ -1,0 +1,28 @@
+name: "dynamic"
+instances {
+  id: "enemyBirds"
+  prototype: "/dynamic/enemyBirds.go"
+  scale3 {
+    x: 1.565946
+    y: 2.599589
+    z: 1.705778
+  }
+}
+instances {
+  id: "plane"
+  prototype: "/dynamic/plane.go"
+  scale3 {
+    x: 0.384495
+    y: 0.759615
+  }
+}
+instances {
+  id: "drone"
+  prototype: "/dynamic/drone.go"
+  scale3 {
+    x: 0.043014
+    y: 0.035828
+    z: 0.9472
+  }
+}
+scale_along_z: 0

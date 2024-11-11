@@ -1,0 +1,10 @@
+name: "login"
+scale_along_z: 0
+embedded_instances {
+  id: "login"
+  data: "components {\n"
+  "  id: \"loginScreen\"\n"
+  "  component: \"/login/login.gui\"\n"
+  "}\n"
+  ""
+}
